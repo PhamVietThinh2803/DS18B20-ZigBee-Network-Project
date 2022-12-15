@@ -12,14 +12,14 @@ Mạch cảm biến - Vi xử lý có các chức năng cơ bản sau:
 + Khi nhiệt độ vượt ngưỡng, đèn cảnh báo tương ứng sẽ được bật. Khi nhiệt độ đã dưới ngưỡng vẫn cần chờ nhấn nút để thoát cảnh báo.
 + Cập nhật nhiệt độ 5 giây 1 lần. Trong thời gian chờ có thể vào trạng thái ngủ (SLEEP MODE) và thức dậy sử dụng hẹn giờ thông qua module RTC có sẵn trong vi xử lý
 # Cấu hình chân I/O cho STM32 trong CubeMX
-![plot]([https://github.com/PhamVietThinh2803/DS18B20-ZigBee-Network-Project/blob/main/Code/IO.png])
+![plot](https://github.com/PhamVietThinh2803/DS18B20-ZigBee-Network-Project/blob/main/Code/IO.png)
 Lưu ý: Ngắt ngoài kích hoạt bằng nút nhấn đặt ở chế độ xung sườn xuống, vì vậy, khi cấu hình ta chọn Pull-up chân B15 nối 1 đầu nút nhấn,
 đầu còn lại nối vào trở 1K như trong Schematic
 # Cấu hình Clock 
-![plot]([https://github.com/PhamVietThinh2803/DS18B20-ZigBee-Network-Project/blob/main/Code/Clock.png])
+![plot](https://github.com/PhamVietThinh2803/DS18B20-ZigBee-Network-Project/blob/main/Code/Clock.png)
 Chọn nguồn cấp xung Clock cho cả hệ thống là thạch anh ngoại (HSE) 
 # Cấu hình Timer
 Tránh sử dụng hàm HAL_Delay() do đây cũng là một hàm ngắt của hệ thống, sử dụng không đúng cách có thể gây treo hệ thống, nên ở đây ta sử dụng
 Delay Timer. Timer trong STM32 được cấp bởi bộ APB2. Đặt tần số xung Clock lên tối đa là 72MHz.
 Ta đặt giá trị bộ chia tần là 72 để mỗi lần đếm Timer mất 1 us (72Mhz/72 = 1Mhz --> T = 1 us)
-![plot]([https://github.com/PhamVietThinh2803/DS18B20-ZigBee-Network-Project/blob/main/Code/Timer.png])
+![plot](https://github.com/PhamVietThinh2803/DS18B20-ZigBee-Network-Project/blob/main/Code/Timer.png)
